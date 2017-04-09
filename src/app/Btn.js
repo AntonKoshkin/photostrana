@@ -14,7 +14,7 @@ export default class Btn {
 
 		this.counting = false;
 		this.countInterval = null;
-		// this.restTime = numberToTime(params.rest_time);
+
 		this.icon = document.createElement('div');
 		this.icon.className = 'btn__icon';
 		this.icon.style.backgroundImage = `url(${this.genBg(params.title)})`;
@@ -25,9 +25,6 @@ export default class Btn {
 
 		this.btn = document.createElement('button');
 		this.btn.className = 'btn';
-		// if (params.rest_time) {
-		// 	this.btn.classList.add('btn--count');
-		// }
 		this.btn.id = `btn${params.id}`;
 
 		this.btn.appendChild(this.icon);
@@ -65,7 +62,6 @@ export default class Btn {
 		this.btn.addEventListener('click', () => {
 			if (!this.disabled) {
 				this.click();
-				console.log('click');
 			}
 		});
 	}

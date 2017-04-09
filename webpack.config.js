@@ -1,9 +1,11 @@
-const path						= require('path');
-const webpack					= require('webpack');
+const path		= require('path');
+const webpack	= require('webpack');
+const prefixer	= require('autoprefixer');
 
 const CleanWebpackPlugin	= require('clean-webpack-plugin');
 const CopyWebpackPlugin		= require('copy-webpack-plugin');
 const HtmlWebpackPlugin		= require('html-webpack-plugin');
+const ExtractTextPlugin		= require('extract-text-webpack-plugin');
 
 const CONFIG = {
 	entry : './src/app',
@@ -26,17 +28,6 @@ const CONFIG = {
 				test   : /\.js$/,
 				exclude: /node_modules/,
 				loader : 'babel-loader',
-			}, {
-				test   : /\.css$/,
-				exclude: /(node_modules)/,
-				use    : [
-					'style-loader',
-					'css-loader',
-					{
-						loader : 'postcss-loader',
-						options: {sourceMap: 'inline'},
-					}
-				],
 			}
 		],
 	},

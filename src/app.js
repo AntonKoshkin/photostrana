@@ -20,8 +20,6 @@ ready(() => {
 		points.value = data.current_points;
 
 		data.actions.forEach(item => {
-			console.log(item.id);
-
 			btns[`btn${item.id}`] = new Btn(item, points, 'btns');
 			btns[`btn${item.id}`].insertTo(document.getElementById('btns'));
 		});
