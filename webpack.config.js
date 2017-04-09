@@ -5,7 +5,7 @@ const CleanWebpackPlugin	= require('clean-webpack-plugin');
 const CopyWebpackPlugin		= require('copy-webpack-plugin');
 const HtmlWebpackPlugin		= require('html-webpack-plugin');
 
-module.exports = {
+const CONFIG = {
 	entry : './src/app',
 	output: {
 		path      : path.join(__dirname, 'dist'),
@@ -43,17 +43,25 @@ module.exports = {
 
 	plugins: [
 		new CleanWebpackPlugin(['dist']),
+		new webpack.DefinePlugin({BUNDLE: JSON.stringify(process.env.BUNDLE)}),
 		new webpack.optimize.OccurrenceOrderPlugin(),
 		new webpack.HotModuleReplacementPlugin(),
 		new webpack.NoEmitOnErrorsPlugin(),
 		new HtmlWebpackPlugin({
-			template: './src/index.html',
+			template: process.env.BUNDLE === 'static' ? './src/index.static.html' : './src/index.html',
 			path    : 'dist',
+			filename: 'index.html',
+			inject  : false,
 		}),
-		new CopyWebpackPlugin([{
-			from: 'src/style.css',
-			to  : 'style.css',
-		}])
+		new CopyWebpackPlugin([
+			{
+				from: 'src/style.css',
+				to  : 'style.css',
+			}, {
+				from: 'src/img',
+				to  : 'img',
+			}
+		])
 	],
 
 	devServer: {
@@ -65,3 +73,5 @@ module.exports = {
 		watchContentBase: true,
 	},
 };
+
+module.exports = CONFIG;

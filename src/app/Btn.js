@@ -1,3 +1,5 @@
+/* global BUNDLE */
+
 import {numberToTime}	from './libs';
 import {sendClick}		from './server';
 
@@ -6,6 +8,7 @@ export default class Btn {
 		this.pointsBlock = points;
 		this.reward = params.points;
 		this.id = params.id;
+
 		this.parent = parentId ? document.getElementById(parentId) : null;
 		this.cooldown = params.recovery_time;
 
@@ -14,7 +17,7 @@ export default class Btn {
 		// this.restTime = numberToTime(params.rest_time);
 		this.icon = document.createElement('div');
 		this.icon.className = 'btn__icon';
-		this.icon.style.backgroundImage = 'qwe';
+		this.icon.style.backgroundImage = `url(${this.genBg(params.title)})`;
 
 		this.counter = document.createElement('span');
 		this.counter.className = 'btn__counter';
@@ -31,6 +34,12 @@ export default class Btn {
 		this.btn.appendChild(this.counter);
 
 		this.restTime = params.rest_time;
+	}
+	genBg(iconName) {
+		if (BUNDLE === 'static') {
+			return `img/${iconName}.png`;
+		}
+		return `/img/${iconName}.png`;
 	}
 	set restTime(number) {
 		this._restTime = number;

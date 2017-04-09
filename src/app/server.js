@@ -8,26 +8,28 @@ export function getInitialData(cb, timeout) {
 			actions: [
 				{
 					id           : 145,
-					title        : 'Test1',
+					title        : 'coffee',
 					rest_time    : 0,
 					recovery_time: 600,
 					points       : 20,
-					pathToIcon   : 'path/to/icon.png',
 				}, {
 					id           : 146,
-					title        : 'Test2',
-					// rest_time    : 428,
-					rest_time    : 10,
+					title        : 'meat',
+					rest_time    : 0,
 					recovery_time: 660,
 					points       : 20,
-					pathToIcon   : 'path/thto/icon.png',
 				}, {
 					id           : 147,
-					title        : 'Test3',
+					title        : 'watch',
+					rest_time    : 394,
+					recovery_time: 480,
+					points       : 30,
+				}, {
+					id           : 147,
+					title        : 'tornado',
 					rest_time    : 0,
 					recovery_time: 480,
 					points       : 30,
-					pathToIcon   : 'path/thto/icon.png',
 				}
 			],
 		});

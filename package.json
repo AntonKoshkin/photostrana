@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start": "webpack-dev-server",
-    "w": "webpack"
+    "build": "webpack",
+    "build:static": "BUNDLE=static webpack"
   },
   "repository": {
     "type": "git",

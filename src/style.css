@@ -1,4 +1,8 @@
-* {
+/* шрифт Trebuchet MS является платным, так что шрифт оставил системным */
+
+*,
+*:before,
+*:after {
 	box-sizing: border-box;
 }
 
@@ -7,13 +11,17 @@ body {
 }
 
 .block {
-	width: 500px;
-	height: 200px;
+	width: 361px;
+	height: 124px;
 	background-color: #9ed737;
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	padding: 20px;
+	background-image: url(/img/background.jpg);
+	background-image: url(img/background.jpg);
+	padding-left: 24px;
+	padding-top: 11px;
+	padding-bottom: 10px;
 }
 
 .block__btns {
@@ -21,9 +29,43 @@ body {
 	justify-content: center;
 }
 
+.points {
+	margin-left: 10px;
+	width: 64px;
+	height: 33px;
+	box-shadow: 0 5px 5px rgba(0, 0, 0, 0.75),
+		inset 0 0 5px rgba(0, 0, 0, 0.75);
+	border-radius: 10px 9px 9px 10px;
+	border: 3px solid #fff;
+	background-color: #555;
+	padding-right: 8px;
+	text-align: right;
+	position: relative;
+}
+
+.points:before {
+	content: '';
+	position: absolute;
+	width: 33px;
+	height: 36px;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
+	background-image: url(img/star.png);
+	top: -5px;
+	left: -16px;
+}
+
+.points__number {
+	color: #fff;
+	font-size: 1.375rem;
+	font-weight: 700;
+	font-style: italic;
+}
+
 .btn {
-	width: 80px;
-	height: 80px;
+	width: 54px;
+	height: 54px;
 	position: relative;
 	cursor: pointer;
 	transition: all .3s;
@@ -37,7 +79,7 @@ body {
 }
 
 .btn:not(:last-child) {
-	margin-right: 10px;
+	margin-right: 15px;
 }
 
 .btn:not([disabled]):hover {
@@ -51,15 +93,16 @@ body {
 	top: 50%;
 	left: 50%;
 	transform: translate(-50%, -50%);
-	background-color: skyblue;
-	border-radius: 50%;
-	border: 1px solid #000;
+	background-size: contain;
+	background-repeat: no-repeat;
+	background-position: center;
 }
 
 .btn__counter {
 	color: #fff;
-	text-shadow: 1px 1px 1px #000;
-	font-size: 1.3rem;
+	text-shadow: 1px 1px 0 #000;
+	font-size: .875rem;
+	line-height: 1em;
 	display: none;
 	position: absolute;
 	top: 50%;
@@ -72,5 +115,5 @@ body {
 }
 
 .btn--count .btn__icon {
-	opacity: .7;
+	opacity: .5;
 }
